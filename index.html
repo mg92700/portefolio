@@ -15,10 +15,17 @@ a{color:inherit}
 .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
 header.top{display:flex;justify-content:space-between;align-items:center;padding:22px 0;font-size:14px}
 header.top nav{display:flex;gap:22px}
+header.top strong{white-space:nowrap}
 header.top a{text-decoration:none;color:var(--mut)}header.top a:hover{color:var(--acc)}
 .hero{padding:70px 0 60px;border-bottom:1px solid var(--line)}
+.hero{display:grid;grid-template-columns:260px 1fr;gap:56px;align-items:center}
+.portrait{margin:0;position:relative;width:260px;aspect-ratio:4/5}
+.portrait::before{content:"";position:absolute;inset:14px -14px -14px 14px;border:2px solid var(--acc);border-radius:6px}
+.portrait img{position:relative;display:block;width:100%;height:100%;object-fit:cover;object-position:50% 30%;border-radius:6px;background:var(--line)}
+.intro{min-width:0}
+@media(max-width:760px){.hero{grid-template-columns:1fr;gap:34px;padding:40px 0}.portrait{width:190px}}
 .kicker{color:var(--acc);font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
-h1{font-size:clamp(46px,9vw,108px);line-height:.95;letter-spacing:-.03em;margin:18px 0 26px;font-weight:500}
+h1{font-size:clamp(46px,8vw,92px);line-height:.95;letter-spacing:-.03em;margin:18px 0 26px;font-weight:500}
 h1 em{color:var(--acc);font-style:italic}
 .lead{font-size:clamp(19px,2.4vw,24px);max-width:34em;color:var(--mut);margin:0 0 30px}
 .links{display:flex;flex-wrap:wrap;gap:12px 22px;font-size:15px}
@@ -27,7 +34,7 @@ h1 em{color:var(--acc);font-style:italic}
 section{display:grid;grid-template-columns:200px 1fr;gap:20px 40px;padding:56px 0;border-bottom:1px solid var(--line)}
 section>h2{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin:6px 0 0;font-weight:600}
 .nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:26px}
-.nums b{display:block;font-size:54px;line-height:1;font-weight:500;color:var(--acc)}
+.nums b{display:block;white-space:nowrap;font-size:clamp(30px,3.6vw,46px);line-height:1;font-weight:500;color:var(--acc)}
 .nums span{font-size:14px;color:var(--mut)}
 .skill{display:grid;grid-template-columns:150px 1fr;gap:6px 20px;padding:14px 0;border-top:1px solid var(--line)}
 .skill:first-child{border-top:0;padding-top:0}
@@ -63,6 +70,8 @@ footer{padding:30px 0 60px;color:var(--mut);font-size:14px}
     <nav><a href="#projets">Projets</a><a href="#stack">Stack</a><a href="#parcours">Parcours</a><a href="#recommandations">Avis</a><a href="#contact">Contact</a></nav></header>
 
   <div class="hero">
+    <figure class="portrait"><img src="photo.jpg" alt="Portrait de Mouhsin Ghoraf" width="640" height="800" fetchpriority="high"></figure>
+    <div class="intro">
     <div class="kicker sans">Ingénieur logiciel full stack · Java / Angular / Kafka</div>
     <h1>Mouhsin<br><em>Ghoraf.</em></h1>
     <p class="lead">Plus de sept ans à concevoir des plateformes back-end et front-end sûres, événementielles et maintenables, pour des acteurs de la mutuelle, de la finance et du transport. Architecture hexagonale, Kafka, OpenShift, et l'IA comme outil d'ingénierie.</p>
@@ -71,6 +80,7 @@ footer{padding:30px 0 60px;color:var(--mut);font-size:14px}
       <a href="https://www.linkedin.com/in/mouhsin-ghoraf" target="_blank" rel="noopener">LinkedIn</a>
       <a href="cv-mouhsin-ghoraf.pdf" download>CV en PDF</a>
       <a href="mailto:ghoraf.mouhsin@gmail.com">Écrire</a>
+    </div>
     </div>
   </div>
 
