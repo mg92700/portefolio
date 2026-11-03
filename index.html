@@ -41,6 +41,9 @@ section>h2{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:va
 .proj .arrow{grid-row:1;grid-column:2;font-size:28px;color:var(--acc)}
 .job{padding:0 0 26px}.job h3{margin:0;font-size:22px;font-weight:500}.job .m{font-size:13px;color:var(--mut)}
 .todo{font-size:11px;background:var(--acc);color:var(--bg);padding:1px 8px;border-radius:99px;margin-left:8px;vertical-align:middle;font-family:ui-sans-serif,system-ui,sans-serif;font-weight:600}
+.job .sub{margin:20px 0 0;font-size:13px;font-weight:600;color:var(--acc);letter-spacing:.04em}
+.job .st{margin:14px 0 0;font-size:13px;color:var(--mut);font-weight:600}
+.job{padding-bottom:42px}
 ul.l{margin:10px 0 0;padding-left:1.1em;color:var(--mut)}ul.l li{margin:4px 0}
 .cta{font-size:clamp(26px,5vw,56px);line-height:1.1;margin:0;font-weight:500}
 .cta a{color:var(--acc)}
@@ -103,29 +106,77 @@ footer{padding:30px 0 60px;color:var(--mut);font-size:14px}
   <section id="parcours">
     <h2 class="sans">Parcours</h2>
     <div>
-      <div class="job"><h3>Harmonie Mutuelle, ingénieur logiciel senior</h3><div class="m sans">2024 – aujourd'hui · Paris et Île-de-France · en prestation (Apside, racheté par CGI)</div>
+
+      <div class="job"><h3>Harmonie Mutuelle, ingénieur logiciel senior</h3>
+        <div class="m sans">2024 – aujourd'hui · Paris et Île-de-France · en prestation (Apside, racheté par CGI)</div>
+        <p><strong>Contexte.</strong> Plateformes d'authentification, de consentements et de notifications d'une mutuelle, utilisées par plus d'un million d'adhérents.</p>
+        <p class="sub sans">Depuis mars 2026 : chaîne de notifications</p>
         <ul class="l">
-          <li>Sécurisation de l'authentification pour plus d'un million d'adhérents : MFA et OTP, SPI Keycloak sur mesure, SSO entre applications, tokens inter-API.</li>
-          <li>Notifications événementielles sur Apache Kafka, avec gestion des consumers, des partitions et de la concurrence.</li>
-          <li>Migrations de stack (Spring Boot 3, Angular 19, Keycloak 26) et adoption de l'architecture hexagonale sur les microservices.</li>
-          <li>Migration d'applications de VM vers OpenShift, scaling horizontal, CI/CD GitLab et Jenkins, POC Spring AI.</li>
-        </ul></div>
-      <div class="job"><h3>Société Générale Securities Services, ingénieur d'étude et développement</h3><div class="m sans">2022 – 2024 · La Défense · en prestation (Apside)</div>
+          <li>Refonte d'une chaîne de notifications reposant sur plusieurs services et intégrations externes, dont l'architecture historique, surtout synchrone, posait des problèmes de performance, de disponibilité et de concurrence.</li>
+          <li>Passage de traitements synchrones à une architecture découplée : Kafka, gestion des consumers, des partitions et de la concurrence, sécurisation des appels vers les services externes.</li>
+          <li>Backend en Java 21, Spring Boot, API REST et architecture hexagonale. Interfaces métier en Angular et TypeScript. Intégration avec DataHub, SQL et différents services de notification.</li>
+          <li>Migration d'applications de VM vers OpenShift et adaptation au scaling horizontal.</li>
+          <li>POC autour de Spring AI.</li>
+        </ul>
+        <p class="sub sans">2024 – mars 2026 : sécurité, consentements et événementiel</p>
         <ul class="l">
-          <li>Application DLP : intégration, transformation (Spring Batch) et distribution de données financières (Bloomberg, SIX Financial, VDF) via RabbitMQ.</li>
-          <li>API de supervision des intégrations : délais de diagnostic réduits de 40 %. Dashboards Kibana pour une détection proactive des anomalies.</li>
-          <li>Microservice de gestion des ACK pour lisser les pics de charge. Chaîne Jenkins, Kubernetes et Lens.</li>
-        </ul></div>
-      <div class="job"><h3>Avancial (groupe SNCF), ingénieur d'étude et développement</h3><div class="m sans">2019 – 2022 · Saint-Denis · en prestation (Sogeti)</div>
+          <li><strong>Authentification :</strong> MFA via Keycloak 18, OTP sécurisé, SPI Keycloak sur mesure, SSO entre les applications du SI, tokens inter-API. Parcours de création de compte et de modification de l'e-mail de connexion, avec vérification. MFA ensuite étendu aux opérations sensibles.</li>
+          <li><strong>Consentements :</strong> centralisation de la gestion des consentements au niveau du groupe pour la conformité réglementaire. Amélioration des performances, de la robustesse et de la maintenabilité des API de consentements et de personnes physiques. Configuration de l'environnement et analyse du schéma de données.</li>
+          <li><strong>Événementiel :</strong> notifications en architecture event-driven sur Apache Kafka, pour une meilleure traçabilité et une intégration inter-applicative fiable. Envoi d'e-mails transactionnels via NP6.</li>
+          <li><strong>Modernisation :</strong> Spring Boot 2 vers 3, Angular 12 vers 19 par étapes, Keycloak vers la version 26, architecture hexagonale sur les microservices.</li>
+          <li><strong>Industrialisation :</strong> CI/CD avec GitLab CI et Jenkins, Docker, déploiements contrôlés. Suivi des API et des processus métier par des dashboards Kibana. Qualité avec SonarQube, SOLID, Clean Code, documentation Swagger / OpenAPI. Optimisation de requêtes PL/SQL, traitements batch.</li>
+          <li><strong>Mobile :</strong> intégration des API dans une application hybride Ionic.</li>
+        </ul>
+        <p class="st sans">Java 21 · Spring Boot 2/3 · Kafka · Keycloak · Angular · Ionic · OpenShift · Kubernetes · GitLab CI · Jenkins · Kibana · SonarQube</p></div>
+
+      <div class="job"><h3>Société Générale Securities Services, ingénieur d'étude et développement</h3>
+        <div class="m sans">2022 – 2024 · La Défense · en prestation (Apside)</div>
+        <p><strong>Contexte.</strong> Application DLP (Distribution Layers Project) : acquisition, normalisation et distribution de données financières issues de fournisseurs externes (Bloomberg, SIX Financial, VDF) vers les entités du groupe en France et au Luxembourg.</p>
         <ul class="l">
-          <li>Migration d'une application de gestion du portefeuille clients entreprises SNCF Voyageurs vers Spring Boot : gain de performance de 60 %.</li>
-          <li>Passage d'une API de données trains Paris–Milan de SOAP à REST. Automatisation de traitements CRUD sur IBM S/400 via ActiveMQ.</li>
+          <li>Conception et maintenance d'une application orientée flux, avec une approche générique et standardisée des flux entrants et sortants, en microservices. Intégration et transformation avec Spring Batch, communication asynchrone par RabbitMQ.</li>
+          <li>Microservice dédié aux accusés de réception (ACK) : suivi asynchrone fiable des traitements et lissage des pics de charge.</li>
+          <li>API de supervision des processus d'intégration, avec rapports journaliers sécurisés générés automatiquement. Délais de diagnostic réduits de 40 %.</li>
+          <li>Chaîne de données et dashboards Kibana pour une surveillance proactive et une détection plus rapide des anomalies. Avec l'équipe offshore en Inde, conception de l'architecture de monitoring. Temps de résolution des incidents réduit de 50 %.</li>
+          <li>Mise en place de la chaîne de production à partir de l'archétype SG : Jenkins, Kubernetes, Lens.</li>
+          <li>Interface de téléchargement sécurisé de fichiers. Stratégie de tests, tests automatisés, SonarQube, documentation Swagger et documentation technique alignée sur les standards qualité de la banque.</li>
+        </ul>
+        <p class="st sans">Java · Spring Boot · Spring Batch · RabbitMQ · Kibana · Jenkins · Kubernetes · SonarQube</p></div>
+
+      <div class="job"><h3>Avancial (groupe SNCF), ingénieur d'étude et développement Java / Java EE</h3>
+        <div class="m sans">2019 – 2022 · Saint-Denis · en prestation (Sogeti), pour SNCF Voyageurs</div>
+        <p><strong>Contexte.</strong> Une équipe de maîtrise d'œuvre de 7 personnes, 30 à 40 applications utilisées chaque jour par des milliers d'utilisateurs en Europe. Méthode Scrum en sprints de deux semaines, TDD, JIRA, Bitbucket, Confluence.</p>
+        <ul class="l">
+          <li><strong>Vivastar :</strong> application de gestion et de suivi des agences de voyage SNCF. Export et transformation de données sensibles selon le rôle de l'utilisateur, système de notification vers les parties prenantes, jobs de récupération, d'envoi, de transformation et d'enregistrement dans plusieurs bases. Migration depuis un socle propriétaire vers Spring Boot : gain de performance de 60 %.</li>
+          <li><strong>Outil FCE :</strong> automatisation de traitements métier pour remplacer la mise à jour manuelle de milliers de données sensibles. Outil de CRUD de masse sur l'environnement IBM VPARS (serveur S/400, AREL) pour alimenter la base Resarail, avec Apache ActiveMQ en communication TCP. Stack Java EE (Java 8), REST, Angular 7, MySQL.</li>
+          <li>Migration d'une API de données trains Paris–Milan de SOAP vers REST : performance, scalabilité et maintenabilité renforcées.</li>
           <li>Application Angular indépendante avec notifications temps réel par WebSockets.</li>
+        </ul>
+        <p class="st sans">Java EE · Spring Boot · REST · SOAP · Angular · ActiveMQ · MySQL · WebSocket</p></div>
+
+      <div class="job"><h3>YNOV Campus, ingénieur d'étude et développement Java / JEE</h3>
+        <div class="m sans">2018 – 2019 · Nanterre</div>
+        <ul class="l">
+          <li>Pilotage de projet, développement de microservices et installation de l'environnement de recette.</li>
+          <li>Web API avec Spring Data et Spring Security. Back-office d'administration et modules métier. Module de comparaison pour les reportings. Étude des risques liés aux intrusions.</li>
+          <li>Tests unitaires JUnit et tests fonctionnels du front.</li>
+        </ul>
+        <p class="st sans">Java · JEE · Spring Boot · Angular · React.js</p></div>
+
+      <div class="job"><h3>CACEIS, apprenti développeur puis ingénieur d'étude .NET</h3>
+        <div class="m sans">2016 – 2019 · Issy-les-Moulineaux · alternance</div>
+        <ul class="l">
+          <li>Modules .NET pour une application de gestion d'assemblées générales, de gestion juridique des titres, d'éditique de courrier de masse et de gestion des habilitations. Applications de contrôle de fichiers selon les règles de gestion du service.</li>
+          <li>Automatisation de processus métier (batchs, services Windows). Refonte d'applications avec de nouvelles interfaces et règles métier (ASP.NET). Applications WPF et WinForm, web services.</li>
+          <li>Architecture n-tiers et choix de design patterns (Observer, MVC, Strategy, Adapter, Entity Framework). Planification et estimation des tâches, jeux de recette, documentation technique et utilisateur.</li>
+        </ul>
+        <p class="st sans">.NET · ASP.NET · WPF · WinForm · SVN</p></div>
+
+      <div class="job"><h3>Formation</h3>
+        <div class="m sans">2016 – 2019</div>
+        <ul class="l">
+          <li>Master Ingénierie informatique et système d'information, YNOV Nanterre (2019).</li>
+          <li>Licence professionnelle Concepteur des systèmes d'information, Université Paris 8 (2017).</li>
         </ul></div>
-      <div class="job"><h3>Début de parcours : YNOV Campus et CACEIS</h3><div class="m sans">2016 – 2019 · Île-de-France</div>
-        <p>Ingénieur d'étude et développement Java/JEE à YNOV Campus, puis apprentissage en développement .NET chez CACEIS (applications métier, batchs, architecture n-tiers).</p></div>
-      <div class="job"><h3>Formation</h3><div class="m sans">2017 – 2019</div>
-        <p>Master Ingénierie informatique et système d'information, YNOV Nanterre (2019). Licence professionnelle Concepteur des systèmes d'information, Université Paris 8 (2017).</p></div>
     </div>
   </section>
 
